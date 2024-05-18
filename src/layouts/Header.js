@@ -1,4 +1,6 @@
-const Header = () => {
+const Header = (props) => {
+  //destructure
+  const { user } = props;
   return (
     <div>
       <header>
