@@ -3,7 +3,11 @@ import Login from "../pages/Login";
 import Tasks from "../pages/Tasks";
 import UserList from "../pages/UserList";
 import UserPage from "../pages/UserPage";
-const Main = () => {
+
+const Main = (props) => {
+  //destructuring
+  const { allUsers } = props;
+
   return (
     <div>
       <div className="main-container">
@@ -15,7 +19,7 @@ const Main = () => {
             <Tasks />
           </Route>
           <Route exact path="/users">
-            <UserList />
+            <UserList allUsers={allUsers} />
           </Route>
           <Route exact path="/users/:id/:name/:surname">
             <UserPage />
