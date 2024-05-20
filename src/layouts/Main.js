@@ -6,14 +6,14 @@ import UserPage from "../pages/UserPage";
 
 const Main = (props) => {
   //destructuring
-  const { allUsers } = props;
+  const { allUsers, handleLogin } = props;
 
   return (
     <div>
       <div className="main-container">
         <Switch>
           <Route exact path="/login">
-            <Login />
+            <Login handleLogin={handleLogin} />
           </Route>
           <Route exact path="/tasks">
             <Tasks />

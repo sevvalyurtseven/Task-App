@@ -36,3 +36,8 @@ header nav a {
 .user-container span {
   vertical-align: middle;
 }
+
+.logout-button {
+  color: blue;
+  cursor: pointer;
+}

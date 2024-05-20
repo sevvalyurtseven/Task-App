@@ -9,6 +9,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+.main-container {
+  padding: 4rem 2rem;
+}
 
 h2 {
   text-align: center;

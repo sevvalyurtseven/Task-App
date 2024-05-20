@@ -3,7 +3,7 @@ import "./Header.css";
 
 const Header = (props) => {
   //destructure
-  const { user } = props;
+  const { user, handleLogout } = props;
   return (
     <div>
       <header>
@@ -15,7 +15,12 @@ const Header = (props) => {
         </nav>
         <div className="user-container">
           <span className="profile-image"></span>
-          <span> {user.name}</span>
+          <span> {user.first_name}</span>
+          {user.first_name && (
+            <span className="logout-button" onClick={handleLogout}>
+              (Logout)
+            </span>
+          )}
         </div>
       </header>
     </div>
