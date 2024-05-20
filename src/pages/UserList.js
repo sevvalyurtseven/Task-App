@@ -10,8 +10,8 @@ const UserList = (props) => {
       <h2>USERS</h2>
       <div className="userlist-container">
         {allUsers.map((user) => (
-          <div className="userlist-container">
-            <User key={user.id} user={user} />
+          <div key={user.id} className="userlist-container">
+            <User user={user} />
           </div>
         ))}
       </div>

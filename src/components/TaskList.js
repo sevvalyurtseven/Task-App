@@ -1,8 +1,13 @@
-const TaskList = () => {
+const TaskList = (props) => {
+  //destructure
+  const { title, tasks, type } = props;
   return (
-    <div className="tasklist-container">
-      <h1>TaskList Area</h1>
-    </div>
+    <>
+      <div className="tasklist-area">
+        <h2>{title}</h2>
+        <div className="tasklist-container"></div>
+      </div>
+    </>
   );
 };
 export default TaskList;
