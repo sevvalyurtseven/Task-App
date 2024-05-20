@@ -2,12 +2,26 @@ import Header from "./layouts/Header.js";
 import Main from "./layouts/Main.js";
 import Footer from "./layouts/Footer.js";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({}); // giriş yapan kullanıcı
+  const [loggedInUser, setLoggedInUser] = useState({
+    name: "Sevval",
+    password: "1234",
+  }); // giriş yapan kullanıcı
   const [allUsers, setAllUsers] = useState([]); // tum kullanicilari tutacak (gecici backend görevi)
   const [tasks, setTasks] = useState([]);
+
+  const history = useHistory();
+
+  //Eger kullanıcı giriş yaptıysa tasks sayfasına gidecek. Eger kullanıcı giriş yapmadıysa login sayfasına gidecek
+
+  useEffect(() => {
+    if (!loggedInUser.name) {
+      history.push("/login");
+    }
+  }, []); //DidMount
 
   const handleLogin = (credentials) => {
     //login credentials check in allUsers
