@@ -1,3 +1,5 @@
+import User from "../components/User";
+
 const UserList = (props) => {
   //destructure
   const { allUsers } = props;
@@ -6,7 +8,7 @@ const UserList = (props) => {
     <>
       {allUsers.map((user) => (
         <div className="userlist-container">
-          <h1>{user.first_name}</h1>
+          <User key={user.id} user={user} />
         </div>
       ))}
     </>
