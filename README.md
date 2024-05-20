@@ -2,6 +2,25 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## STEPS:
+
+Adımlar
+
+1- Tasarımları hazırla
+2- State'leri planla
+3- Componentleri planla
+4- Boş bir proje olusştur: npx create-react-app task-app
+5- GitHub reposu oluştur
+6- Folder yapısı ve componentleri oluştur
+7- Router için react-router-dom'u yükleyeceğiz.
+7.1: BrowserRouter ile App'imizi sarmalayacağız
+7.2: Switch
+7.3: Route
+7.4: NavLink
+7.5: Link
+7.6: useHistory()
+7.7: useParams()
+
 ## Available Scripts
 
 In the project directory, you can run:
