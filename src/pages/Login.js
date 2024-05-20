@@ -1,6 +1,15 @@
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import "./Login.css";
+import { useState } from "react";
+
+const initialValues = {
+  email: "",
+  password: "",
+};
+
 const Login = () => {
+  const [loginFormData, setLoginFormData] = useState(initialValues);
+
   return (
     <>
       <h2>LOGIN</h2>
