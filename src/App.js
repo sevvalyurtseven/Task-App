@@ -4,6 +4,7 @@ import Footer from "./layouts/Footer.js";
 import "./App.css";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
@@ -21,6 +22,17 @@ function App() {
     if (!loggedInUser.name) {
       history.push("/login");
     }
+  }, []); //DidMount
+
+  useEffect(() => {
+    axios
+      .get("https://reqres.in/api/users")
+      .then((response) => {
+        setAllUsers(response.data.data);
+      })
+      .catch((error) => {
+        console.error(error.response);
+      });
   }, []); //DidMount
 
   const handleLogin = (credentials) => {
