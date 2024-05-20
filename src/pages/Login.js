@@ -7,13 +7,28 @@ const initialValues = {
   password: "",
 };
 
-const Login = () => {
+const Login = (props) => {
+  //destructure
+  const { handleLogin } = props;
+
   const [loginFormData, setLoginFormData] = useState(initialValues);
+
+  const handleChange = (event) => {
+    setLoginFormData({
+      ...loginFormData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleLogin(loginFormData);
+  };
 
   return (
     <>
       <h2>LOGIN</h2>
-      <Form className="login-form">
+      <Form className="login-form" onSubmit={handleSubmit}>
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
           <Input
@@ -21,6 +36,8 @@ const Login = () => {
             name="email"
             placeholder="Please enter your email"
             type="email"
+            value={loginFormData.email}
+            onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
@@ -30,6 +47,8 @@ const Login = () => {
             name="password"
             placeholder="Please enter your password"
             type="password"
+            value={loginFormData.password}
+            onChange={handleChange}
           />
         </FormGroup>
         <Button id="login-btn" color="primary">
