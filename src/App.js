@@ -9,10 +9,15 @@ function App() {
   const [allUsers, setAllUsers] = useState([]); // tum kullanicilari tutacak (gecici backend görevi)
   const [tasks, setTasks] = useState([]);
 
+  const handleLogin = (credentials) => {
+    //login credentials check in allUsers
+    //eger girilen bilgiler dogruysa setLoggedInUser fonksiyonunu calistir
+  };
+
   return (
     <div className="App">
       <Header user={loggedInUser} />
-      <Main />
+      <Main handleLogin={handleLogin} tasks={tasks} allUsers={allUsers} />
       <Footer />
     </div>
   );
