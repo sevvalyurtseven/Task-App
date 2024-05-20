@@ -1,9 +1,19 @@
+import { Card, CardBody, Button, CardSubtitle, CardTitle } from "reactstrap";
 const User = (props) => {
   const { user } = props;
   return (
-    <div className="user-card">
-      <h1>{`${user.first_name} ${user.last_name}`}</h1>
-    </div>
+    <Card style={{ width: "18rem" }}>
+      <img alt={user.first_name} src={user.avatar} />
+      <CardBody>
+        <CardTitle tag="h5">
+          {user.first_name} {user.last_name}
+        </CardTitle>
+        <CardSubtitle className="mb-2 text-muted" tag="h6">
+          {user.email}
+        </CardSubtitle>
+        <Button>Details</Button>
+      </CardBody>
+    </Card>
   );
 };
 export default User;
