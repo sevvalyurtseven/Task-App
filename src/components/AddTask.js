@@ -139,7 +139,7 @@ const AddTask = (props) => {
             </FormGroup>
           ))}
         </div>
-        <Button id="login-btn" color="primary">
+        <Button disabled={!isValid} id="login-btn" color="primary">
           Save
         </Button>
       </Form>
