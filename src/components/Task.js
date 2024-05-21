@@ -7,13 +7,15 @@ import {
   CardFooter,
   Button,
 } from "reactstrap";
+import { getStatusText } from "../utils/utils";
 
 const Task = (props) => {
   const { task, changeTaskStatus } = props;
 
+  const statusTexts = getStatusText(task.status); // {textToShow, textToSet}
+
   const handleStatusChange = () => {
-    const status = task.status === "incomplete" ? "completed" : "incomplete";
-    changeTaskStatus(task, status);
+    changeTaskStatus(task, statusTexts.textToSet);
   };
 
   return (
@@ -24,7 +26,7 @@ const Task = (props) => {
           <CardTitle tag="h5">{task.subject}</CardTitle>
           <CardText>{task.description}</CardText>
           <Button color="primary" onClick={handleStatusChange}>
-            {task.status === "incomplete" ? "Complete" : "Incomplete"}
+            {statusTexts.textToShow}
           </Button>
         </CardBody>
         <CardFooter>{task.assignees.join(", ")}</CardFooter>
