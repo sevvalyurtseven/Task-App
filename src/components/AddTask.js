@@ -28,7 +28,7 @@ const initialErrors = {
 };
 
 const AddTask = (props) => {
-  const { allUsers } = props;
+  const { allUsers, tasks, addTask } = props;
 
   const [taskFormData, setTaskFormData] = useState(initialValues);
 
@@ -54,6 +54,8 @@ const AddTask = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    addTask(taskFormData);
+    setTaskFormData({ ...initialValues, assignees: [] });
   };
 
   useEffect(() => {
@@ -83,7 +85,7 @@ const AddTask = (props) => {
     } else {
       updatedTaskForm[name] = value;
     }
-    console.log(updatedTaskForm);
+    //console.log(updatedTaskForm);
     setTaskFormData(updatedTaskForm);
 
     Yup.reach(taskSchema, name)
