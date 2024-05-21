@@ -80,6 +80,7 @@ function App() {
         tasks={tasks}
         allUsers={allUsers}
         addTask={addTask}
+        changeTaskStatus={changeTaskStatus}
       />
       <Footer />
     </div>

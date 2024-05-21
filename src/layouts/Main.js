@@ -6,7 +6,7 @@ import UserPage from "../pages/UserPage";
 
 const Main = (props) => {
   //destructuring
-  const { allUsers, handleLogin, addTask, tasks } = props;
+  const { allUsers, handleLogin, addTask, tasks, changeTaskStatus } = props;
 
   return (
     <div>
@@ -16,7 +16,12 @@ const Main = (props) => {
             <Login handleLogin={handleLogin} />
           </Route>
           <Route exact path="/tasks">
-            <Tasks allUsers={allUsers} addTask={addTask} tasks={tasks} />
+            <Tasks
+              allUsers={allUsers}
+              addTask={addTask}
+              tasks={tasks}
+              changeTaskStatus={changeTaskStatus}
+            />
           </Route>
           <Route exact path="/users">
             <UserList allUsers={allUsers} />

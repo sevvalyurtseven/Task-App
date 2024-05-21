@@ -9,7 +9,12 @@ import {
 } from "reactstrap";
 
 const Task = (props) => {
-  const { task } = props;
+  const { task, changeTaskStatus } = props;
+
+  const handleStatusChange = () => {
+    const status = task.status === "incomplete" ? "completed" : "incomplete";
+    changeTaskStatus(task, status);
+  };
 
   return (
     <div className="task-card">
@@ -18,7 +23,9 @@ const Task = (props) => {
         <CardBody>
           <CardTitle tag="h5">{task.subject}</CardTitle>
           <CardText>{task.description}</CardText>
-          <Button>Complete</Button>
+          <Button onClick={handleStatusChange}>
+            {task.status === "incomplete" ? "Complete" : "Incomplete"}
+          </Button>
         </CardBody>
         <CardFooter>{task.assignees.join(", ")}</CardFooter>
       </Card>
