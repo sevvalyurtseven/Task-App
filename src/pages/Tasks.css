@@ -8,6 +8,8 @@
 .tasklist-area {
   width: 37%;
   background-color: bisque;
+  border-radius: 0.5rem;
+  padding: 1rem;
 }
 
 .tasks-container {
