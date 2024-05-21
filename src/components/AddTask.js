@@ -61,7 +61,8 @@ const AddTask = (props) => {
   }, [taskFormData]);
 
   const handleChange = (event) => {
-    const { name, checked, value, type } = event.target;
+    const { checked, type } = event.target;
+    let { name, value } = event.target;
     const updatedTaskForm = { ...taskFormData };
     if (type === "checkbox") {
       if (checked) {
@@ -70,11 +71,22 @@ const AddTask = (props) => {
         const index = updatedTaskForm.assignees.indexOf(name);
         updatedTaskForm.assignees.splice(index, 1);
       }
+      name = "assignees";
+      value = updatedTaskForm.assignees;
     } else {
       updatedTaskForm[name] = value;
     }
     console.log(updatedTaskForm);
     setTaskFormData(updatedTaskForm);
+
+    Yup.reach(taskSchema, name)
+      .validate(value)
+      .then((valid) => {
+        setErrors({ ...errors, [name]: "" });
+      })
+      .catch((err) => {
+        setErrors({ ...errors, [name]: err.errors[0] });
+      });
   };
 
   return (
