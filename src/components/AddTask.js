@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import {
+  Form,
+  FormGroup,
+  FormFeedback,
+  Label,
+  Input,
+  Button,
+} from "reactstrap";
 import { fullName } from "../utils/utils";
 import * as Yup from "yup";
 
@@ -93,27 +100,38 @@ const AddTask = (props) => {
     <div className="add-task-container">
       <h3>AddTask Area</h3>
       <Form className="task-form" onSubmit={handleSubmit}>
-        <FormGroup>
+        <FormGroup className="position-relative">
           <Label for="subject">Subject</Label>
           <Input
             id="subject"
             name="subject"
             placeholder="What is the subject of the task?"
             type="text"
+            valid={errors.subject ? false : true}
             value={taskFormData.subject}
             onChange={handleChange}
           />
+          <FormFeedback className={errors.subject ? "d-block" : null} tooltip>
+            {errors.subject}
+          </FormFeedback>
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="position-relative">
           <Label for="description">Description</Label>
           <Input
             id="description"
             name="description"
             placeholder="Describe the details of the task"
             type="textarea"
+            valid={errors.description ? false : true}
             value={taskFormData.description}
             onChange={handleChange}
           />
+          <FormFeedback
+            className={errors.description ? "d-block" : null}
+            tooltip
+          >
+            {errors.description}
+          </FormFeedback>
         </FormGroup>
         <FormGroup>
           <Label for="deadline">Deadline</Label>
@@ -139,6 +157,11 @@ const AddTask = (props) => {
             </FormGroup>
           ))}
         </div>
+        <FormGroup className="position-relative">
+          <FormFeedback className={errors.assignees ? "d-block" : null} tooltip>
+            {errors.assignees}
+          </FormFeedback>
+        </FormGroup>
         <Button disabled={!isValid} id="login-btn" color="primary">
           Save
         </Button>
