@@ -13,18 +13,14 @@ const Task = (props) => {
 
   return (
     <div className="task-card">
-      <Card className="my-2" style={{ width: "18rem" }}>
+      <Card className="my-2">
         <CardHeader>{task.deadline}</CardHeader>
         <CardBody>
           <CardTitle tag="h5">{task.subject}</CardTitle>
           <CardText>{task.description}</CardText>
           <Button>Complete</Button>
         </CardBody>
-        <CardFooter>
-          {task.assignees.map((item) => (
-            <span key={item.id}> {item}</span>
-          ))}
-        </CardFooter>
+        <CardFooter>{task.assignees.join(", ")}</CardFooter>
       </Card>
     </div>
   );
