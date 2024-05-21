@@ -12,13 +12,12 @@ const TaskList = (props) => {
         <h3>{title}</h3>
         <div className="tasklist-container">
           {tasksToShow.map((task) => (
-            <div key={task.id} className="task-card">
-              <Task
-                task={task}
-                type={type}
-                changeTaskStatus={changeTaskStatus}
-              />
-            </div>
+            <Task
+              key={task.id}
+              task={task}
+              type={type}
+              changeTaskStatus={changeTaskStatus}
+            />
           ))}
         </div>
       </div>
