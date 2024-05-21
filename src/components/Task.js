@@ -23,7 +23,7 @@ const Task = (props) => {
         <CardBody>
           <CardTitle tag="h5">{task.subject}</CardTitle>
           <CardText>{task.description}</CardText>
-          <Button onClick={handleStatusChange}>
+          <Button color="primary" onClick={handleStatusChange}>
             {task.status === "incomplete" ? "Complete" : "Incomplete"}
           </Button>
         </CardBody>
