@@ -14,7 +14,13 @@ const Header = (props) => {
           <NavLink to="/users">Users</NavLink>
         </nav>
         <div className="user-container">
-          <span className="profile-image"></span>
+          <span
+            className="profile-image"
+            style={{
+              backgroundImage: user.avatar ? `url(${user.avatar})` : null,
+              backgroundSize: "cover",
+            }}
+          ></span>
           <span> {user.first_name}</span>
           {user.first_name && (
             <span className="logout-button" onClick={handleLogout}>
