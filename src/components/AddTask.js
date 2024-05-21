@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { fullName } from "../utils/utils";
+import * as Yup from "yup";
 
 const d = new Date();
 const initialValues = {
@@ -31,7 +32,18 @@ const AddTask = (props) => {
   const [isValid, setIsValid] = useState(false);
 
   // 3. adım: Form şemasını olustur
-  const taskSchema = {};
+  const taskSchema = Yup.object().shape({
+    subject: Yup.string()
+      .min(5, "Subject must be at least 3 characters")
+      .required("Subject is required"),
+    description: Yup.string()
+      .min(10, "Description must be at least 10 characters")
+      .required("Description is required"),
+    assignees: Yup.array()
+      .min(1, "At least one assignee is required")
+      .max(3, "Maximum 3 assignees are allowed")
+      .required("Assignees is required"),
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
