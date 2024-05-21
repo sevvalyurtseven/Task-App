@@ -9,7 +9,8 @@ export const getTasksByStatus = (tasks, status) => {
 export const getStatusText = (status) => {
   const textToShow = status === "incomplete" ? "Complete" : "Incomplete";
   const textToSet = status === "incomplete" ? "completed" : "incomplete";
-  return { textToShow, textToSet };
+  const color = status === "incomplete" ? "success" : "danger";
+  return { textToShow, textToSet, color };
 
   /*
   return {

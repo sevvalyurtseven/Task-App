@@ -25,7 +25,7 @@ const Task = (props) => {
         <CardBody>
           <CardTitle tag="h5">{task.subject}</CardTitle>
           <CardText>{task.description}</CardText>
-          <Button color="primary" onClick={handleStatusChange}>
+          <Button color={statusTexts.color} onClick={handleStatusChange}>
             {statusTexts.textToShow}
           </Button>
         </CardBody>
