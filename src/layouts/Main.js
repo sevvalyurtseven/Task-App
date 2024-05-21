@@ -16,7 +16,7 @@ const Main = (props) => {
             <Login handleLogin={handleLogin} />
           </Route>
           <Route exact path="/tasks">
-            <Tasks />
+            <Tasks allUsers={allUsers} />
           </Route>
           <Route exact path="/users">
             <UserList allUsers={allUsers} />
