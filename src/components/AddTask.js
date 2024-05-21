@@ -46,6 +46,7 @@ const AddTask = (props) => {
     description: Yup.string()
       .min(10, "Description must be at least 10 characters")
       .required("Description is required"),
+    deadline: Yup.date().required("Deadline is required"),
     assignees: Yup.array()
       .min(1, "At least one assignee is required")
       .max(3, "Maximum 3 assignees are allowed")
