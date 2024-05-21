@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { fullName } from "../utils/utils";
 import * as Yup from "yup";
@@ -48,6 +48,17 @@ const AddTask = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
+
+  useEffect(() => {
+    taskSchema
+      .isValid(taskFormData)
+      .then((valid) => {
+        setIsValid(valid);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [taskFormData]);
 
   const handleChange = (event) => {
     const { name, checked, value, type } = event.target;
