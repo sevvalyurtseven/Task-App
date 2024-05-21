@@ -61,6 +61,17 @@ function App() {
     setTasks([...tasks, newTask]);
   };
 
+  const changeTaskStatus = (task, status) => {
+    const updatedTasks = tasks.map((item) => {
+      if (item.id === task.id) {
+        item.status = status;
+      }
+      return item;
+    });
+
+    setTasks(updatedTasks);
+  };
+
   return (
     <div className="App">
       <Header user={loggedInUser} handleLogout={handleLogout} />
