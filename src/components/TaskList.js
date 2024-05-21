@@ -1,13 +1,16 @@
 import Task from "../components/Task";
+import { getTasksByStatus } from "../utils/utils";
 const TaskList = (props) => {
   //destructure
   const { title, tasks, type } = props;
+
+  const tasksToShow = getTasksByStatus(tasks, type);
   return (
     <>
       <div className="tasklist-area">
         <h3>{title}</h3>
         <div className="tasklist-container">
-          {tasks.map((task) => (
+          {tasksToShow.map((task) => (
             <div key={task.id} className="task-card">
               <Task task={task} type={type} />
             </div>

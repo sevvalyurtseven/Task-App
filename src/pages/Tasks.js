@@ -8,7 +8,7 @@ const Tasks = (props) => {
   return (
     <div className="tasks-container">
       <AddTask allUsers={allUsers} addTask={addTask} />
-      <TaskList title="Active Tasks" type="incompleted" tasks={tasks} />
+      <TaskList title="Active Tasks" type="incomplete" tasks={tasks} />
       <TaskList title="Completed Tasks" type="completed" tasks={tasks} />
     </div>
   );
