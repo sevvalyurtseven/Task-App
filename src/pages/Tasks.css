@@ -26,6 +26,10 @@
   flex-wrap: wrap;
 }
 
+.assignees-container input {
+  margin-right: 0.6rem;
+}
+
 .assignees-container > div {
   width: 45%;
 }

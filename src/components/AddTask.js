@@ -110,7 +110,7 @@ const AddTask = (props) => {
             name="subject"
             placeholder="What is the subject of the task?"
             type="text"
-            valid={errors.subject ? false : true}
+            //valid={errors.subject ? false : true}
             value={taskFormData.subject}
             onChange={handleChange}
           />
@@ -125,7 +125,7 @@ const AddTask = (props) => {
             name="description"
             placeholder="Describe the details of the task"
             type="textarea"
-            valid={errors.description ? false : true}
+            //valid={errors.description ? false : true}
             value={taskFormData.description}
             onChange={handleChange}
           />
