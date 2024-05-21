@@ -18,7 +18,7 @@ const Header = (props) => {
             className="profile-image"
             style={{
               backgroundImage: user.avatar ? `url(${user.avatar})` : null,
-              backgroundSize: "cover",
+              backgroundSize: user.avatar ? "cover" : null,
             }}
           ></span>
           <span> {user.first_name}</span>
