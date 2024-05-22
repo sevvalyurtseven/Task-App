@@ -36,6 +36,7 @@ const Login = (props) => {
             name="email"
             placeholder="Please enter your email"
             type="email"
+            data-cy="email-input"
             value={loginFormData.email}
             onChange={handleChange}
           />
@@ -47,6 +48,7 @@ const Login = (props) => {
             name="password"
             placeholder="Please enter your password"
             type="password"
+            data-cy="password-input"
             value={loginFormData.password}
             onChange={handleChange}
           />

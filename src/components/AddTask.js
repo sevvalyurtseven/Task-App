@@ -111,6 +111,7 @@ const AddTask = (props) => {
             placeholder="What is the subject of the task?"
             type="text"
             //valid={errors.subject ? false : true}
+            data-cy="subject-input"
             value={taskFormData.subject}
             onChange={handleChange}
           />
@@ -126,6 +127,7 @@ const AddTask = (props) => {
             placeholder="Describe the details of the task"
             type="textarea"
             //valid={errors.description ? false : true}
+            data-cy="description-input"
             value={taskFormData.description}
             onChange={handleChange}
           />
@@ -142,6 +144,7 @@ const AddTask = (props) => {
             id="deadline"
             name="deadline"
             type="date"
+            data-cy="deadline-input"
             value={taskFormData.deadline}
             onChange={handleChange}
           />

@@ -20,7 +20,7 @@ const Task = (props) => {
 
   return (
     <div className="task-card">
-      <Card className="my-2">
+      <Card data-cy={`${task.status}-task`} className="my-2">
         <CardHeader>{task.deadline}</CardHeader>
         <CardBody>
           <CardTitle tag="h5">{task.subject}</CardTitle>
